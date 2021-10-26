@@ -6,6 +6,7 @@ const Post = (props) => {
     const {id} = useParams();
     // return ( <h2> Id is = {id}</h2> );
     //one way to do it is just taking it from the props.
+    
     // return ( <h2> Id is = {props.match.params.id}</h2> );
 
     //if we want to get more stuff out of it. like if we threw

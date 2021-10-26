@@ -10,7 +10,10 @@ function Profile({login}) {
     useEffect(() => {
         if(!login){
             history.push("/");
+            
         }
+
+        //calls api
     }, [login, history]);
 
     // for the nested routes
@@ -35,6 +38,7 @@ function Profile({login}) {
                     <Route path={`${path}/viewProfile`}  component={ViewProfile} exact/>
                     <Route path={`${path}/editProfile`} component={EditProfile}/>
                 </Switch>
+                
             </div>
         </>
      );
