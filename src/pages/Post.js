@@ -13,6 +13,7 @@ const Post = (props) => {
     //localhost:3000/post/fef?name=al&last=cont
     //useLocation()
     const query = new URLSearchParams(useLocation().search);
+    console.log(props);
 
     return ( 
         <>

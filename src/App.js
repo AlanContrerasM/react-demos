@@ -1,4 +1,4 @@
-import {BrowserRouter, Route, Switch, Redirect} from "react-router-dom"
+import {BrowserRouter, Routes, Route} from "react-router-dom"
 import './App.css';
 import Header from './components/Header';
 import Home from './pages/Home';
@@ -22,30 +22,20 @@ function App() {
             <Header />
             <button className="btn btn-outline-success my-2" onClick={()=>{setLogin(!login)}}>{login?"logout":"login"}</button>
            
-              <Switch>
-              <Route path='/' component={Home} exact/>
-                {/* if we want to  send extra params, and props, that include extra stuff we can use.*/}
-                <Route path='/about' render={(props)=>{
-                    return(<About name="EventName" {...props}/>)
-                  }} 
-                />
-                {/* for login and nested stuff */}
-                {/* <Route path='/profile' component={Profile} /> */}
-                <Route path='/profile'>
-                  
-                    {/* We ca either do direct like this so it checks login status and redirects if false */}
-                    {/* {login?<Profile/>:<Redirect to="/"/>} */}
-                    {/* or useHistory, check inside the profile page, I myself would rather use the first option for simple validation. */}
-                 
-                  <Profile login={login}/>
-                </Route> 
-
-
-                {/* for params */}
-                <Route path='/post/:id' component={Post} />
+            <Routes>
+              <Route path='/' element={<Home/>} />
                 
-                <Route component={NotFound} />
-              </Switch>
+              <Route path='/about' element={<About name="EventName"/>}/>
+              {/* for login and nested stuff */}
+              {/* <Route path='/profile' component={Profile} /> */}
+              <Route path='/profile/*' element={<Profile login={login}/>}/>
+
+
+              {/* for params */}
+              <Route path='/post/:id' element={<Post/>} />
+              
+              <Route path="*" element={<NotFound/>} />
+            </Routes>
           </div>
         </BrowserRouter>
   );

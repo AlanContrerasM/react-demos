@@ -20,6 +20,9 @@ function Header() {
                 <li className="nav-item">
                     <NavLink className="nav-link" to="/profile">Profile</NavLink>
                 </li>
+                <li className="nav-item">
+                    <NavLink className="nav-link" to="/post/4567?name=alan&last=cont">Posts, urlparams</NavLink>
+                </li>
                 
             </ul>
             </div>
